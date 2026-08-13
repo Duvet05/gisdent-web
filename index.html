@@ -13,14 +13,15 @@
   <meta property="og:title" content="GisDent | Consultorio Odontológico">
   <meta property="og:description" content="Ortodoncia, Implantología, Rehabilitación y Estética dental de Gisdent con la Dra. Gisella Solis Vega. Agenda tu consulta en Pueblo Libre, Lima.">
   <meta property="og:url" content="https://gisdent-web.vercel.app/">
-  <meta property="og:image" content="https://gisdent-web.vercel.app/assets/imagenes/clinica-3.jpg">
+  <meta property="og:image" content="https://gisdent-web.vercel.app/assets/images/hero-bg.png">
   <meta property="og:image:alt" content="Consultorio Dental GisDent">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="GisDent | Consultorio Odontológico">
   <meta name="twitter:description" content="Ortodoncia, Implantología, Rehabilitación y Estética dental en Senda Dorada 126, Pueblo Libre.">
-  <meta name="twitter:image" content="https://gisdent-web.vercel.app/assets/imagenes/clinica-3.jpg">
+  <meta name="twitter:image" content="https://gisdent-web.vercel.app/assets/images/hero-bg.png">
 
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="./assets/images/hero-bg.png" type="image/png">
   <link rel="preload" as="font" href="./assets/fonts/NunitoSans-Regular.ttf" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" as="font" href="./assets/fonts/NunitoSans-SemiBold.ttf" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" as="font" href="./assets/fonts/NunitoSans-Bold.ttf" type="font/ttf" crossorigin="anonymous">
@@ -33,7 +34,7 @@
     "@context": "https://schema.org",
     "@type": "DentalClinic",
     "name": "GisDent",
-    "image": "https://gisdent-web.vercel.app/assets/imagenes/clinica-3.jpg",
+    "image": "https://gisdent-web.vercel.app/assets/images/hero-bg.png",
     "url": "https://gisdent-web.vercel.app/",
     "telephone": "+51 988 162 622",
     "email": "gisella.solis.unmsm@gmail.com",
@@ -141,7 +142,7 @@
 
   <main id="main-content">
     <article>
-      <section class="section hero" id="home" style="background-image: linear-gradient(to right, rgba(8, 29, 61, 0.64), rgba(8, 29, 61, 0.28)), url('./assets/imagenes/clinica-3.jpg')" aria-label="hero">
+      <section class="section hero" id="home" style="background-image: linear-gradient(to right, rgba(8, 29, 61, 0.64), rgba(8, 29, 61, 0.28))" aria-label="hero">
         <div class="container">
 
           <div class="hero-content">
@@ -162,15 +163,25 @@
           </div>
 
           <figure class="hero-banner">
-            <img
-              src="./assets/imagenes/gisella-profile.jpg"
-              width="587"
-              height="839"
-              loading="eager"
-              decoding="async"
-              alt="Dra. Gisella Solis Vega"
-              class="w-100"
-            >
+            <picture>
+              <source
+                type="image/webp"
+                srcset="./assets/images/hero-bg-480.webp 480w, ./assets/images/hero-bg-768.webp 768w, ./assets/images/hero-bg-1200.webp 1200w, ./assets/images/hero-bg.webp 1920w"
+                sizes="100vw"
+              >
+              <source type="image/png" srcset="./assets/images/hero-bg.png 1920w" sizes="100vw">
+              <img
+                src="./assets/images/hero-bg.png"
+                srcset="./assets/images/hero-bg.png 1920w"
+                sizes="100vw"
+                loading="eager"
+                decoding="async"
+                width="1920"
+                height="900"
+                alt="Clínica GisDent - ambiente de consulta"
+                class="w-100"
+              >
+            </picture>
           </figure>
         </div>
       </section>
