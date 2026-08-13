@@ -20,15 +20,21 @@
    * colors
    */
 
-  --light-steel-blue: hsl(218, 33%, 77%);
-  --royal-blue-light: hsl(225, 68%, 53%);
-  --flickr-blue_30: hsla(225, 68%, 53%, 0.3);
-  --carolina-blue: hsl(201, 92%, 47%);
+  --brand-pink: #f09080;
+  --brand-pink-soft: #ffd7ce;
+  --brand-pink-dark: #e66d79;
+  --brand-blue: #50b0e0;
+  --brand-blue-dark: #2f9fd0;
+  --brand-blue-soft: #9ad0ec;
+  --light-steel-blue: #f6d5cb;
+  --royal-blue-light: var(--brand-blue);
+  --flickr-blue_30: rgba(80, 176, 224, 0.3);
+  --carolina-blue: #79c0e5;
   --oxford-blue-1: hsl(218, 70%, 18%);
   --oxford-blue-2: hsl(217, 100%, 12%);
   --oxford-blue-3: hsl(218, 71%, 11%);
   --gainsboro_50: hsla(0, 0%, 85%, 0.5);
-  --lavender-web: hsl(225, 67%, 91%);
+  --lavender-web: var(--brand-pink-soft);
   --sonic-silver: hsl(0, 0%, 47%);
   --light-gray: hsl(0, 0%, 84%);
   --cultured: hsl(0, 0%, 97%);
@@ -42,14 +48,14 @@
    * gradient color
    */
 
-  --gradient: linear-gradient( 90deg, var(--carolina-blue) 0%, var(--royal-blue-light) 100%);
+  --gradient: var(--brand-pink);
 
   /**
    * typography
    */
 
-  --ff-roboto: "Nunito Sans", sans-serif;
-  --ff-poppins: "Nunito Sans", sans-serif;
+  --ff-roboto: "Nunito Sans", "Lora", sans-serif;
+  --ff-poppins: "Lora", "Nunito Sans", serif;
 
   --fs-1: 4rem;
   --fs-2: 3.6rem;
@@ -185,10 +191,32 @@ body {
   background-color: var(--white);
   color: var(--sonic-silver);
   font-size: 1.5rem;
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("./assets/images/teeth-bg-muted.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.28;
+  z-index: -3;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.72);
+  z-index: -2;
 }
 
 :focus-visible {
-  outline: 2px solid var(--royal-blue-light);
+  outline: 2px solid var(--brand-pink);
   outline-offset: 2px;
 }
 
@@ -217,10 +245,38 @@ body {
 
 .container { padding-inline: 25px; }
 
-.section { padding-block: var(--section-padding); }
+.section {
+  position: relative;
+  padding-block: var(--section-padding);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.section:not(.hero):not(.cta):not(.footer-top):not(.footer-bottom) {
+  background-color: rgba(255, 255, 255, 0.96);
+}
+
+.section:not(.hero):not(.cta):not(.footer-top):not(.footer-bottom)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.84)),
+    url("./assets/images/teeth-bg-muted.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.section:not(.hero):not(.cta):not(.footer-top):not(.footer-bottom) > .container {
+  position: relative;
+  z-index: 1;
+}
 
 .section-subtitle {
-  color: var(--royal-blue-light);
+  color: var(--brand-pink);
   font-family: var(--ff-poppins);
   font-size: var(--fs-6);
   font-weight: var(--fw-700);
@@ -248,7 +304,7 @@ body {
 .h3 { font-size: var(--fs-5); }
 
 .btn {
-  background-image: linear-gradient( var(--deg, 90deg), var(--carolina-blue) 0%, var(--royal-blue-light) 100%);
+  background-color: var(--brand-pink);
   color: var(--white);
   font-size: var(--fs-7);
   text-transform: uppercase;
@@ -258,7 +314,9 @@ body {
   box-shadow: var(--shadow-4);
 }
 
-.btn:is(:hover, :focus) { --deg: -90deg; }
+.btn:is(:hover, :focus) {
+  background-color: var(--brand-pink-dark);
+}
 
 .w-100 { width: 100%; }
 
@@ -323,7 +381,18 @@ body {
   font-family: var(--ff-poppins);
   font-size: 3.4rem;
   font-weight: var(--fw-800);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.logo-text { line-height: 1; }
 
 .nav-toggle-btn {
   color: var(--black);
@@ -376,10 +445,35 @@ body {
 \*-----------------------------------*/
 
 .hero {
+  position: relative;
+  overflow: hidden;
+  background: none;
+  padding-block-end: calc(var(--section-padding) / 2);
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./assets/images/teeth-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-block-end: calc(var(--section-padding) / 2);
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content { margin-block-end: 50px; }
@@ -513,7 +607,7 @@ body {
 
 .doctor-card .card-social-link {
   background-color: var(--lavender-web);
-  color: var(--royal-blue-light);
+  color: var(--brand-pink);
   font-size: 16px;
   padding: 12px;
   border-radius: 50%;
@@ -521,7 +615,7 @@ body {
 }
 
 .doctor-card .card-social-link:is(:hover, :focus) {
-  background-color: var(--royal-blue-light);
+  background-color: var(--brand-pink);
   color: var(--white);
 }
 
@@ -683,7 +777,7 @@ body {
 
 .schedule-icon,
 .footer-item .item-icon {
-  background-image: var(--gradient);
+  background-color: var(--brand-pink);
   color: var(--white);
   font-size: 18px;
   padding: 11px;
@@ -751,7 +845,9 @@ body {
   border-radius: 50%;
 }
 
-.footer .social-link:is(:hover, :focus) { background-image: var(--gradient); }
+.footer .social-link:is(:hover, :focus) {
+  background-color: var(--brand-pink);
+}
 
 
 
@@ -1352,14 +1448,14 @@ body {
 }
 
 .location-box {
-  background: linear-gradient(120deg, var(--carolina-blue), var(--royal-blue-light));
+  background: var(--brand-blue);
   color: var(--white);
   padding: 24px;
   border-radius: var(--radius-4);
   min-height: 100%;
 }
 
-.location-box .section-subtitle { color: #d6e5ff; }
+.location-box .section-subtitle { color: var(--brand-pink-soft); }
 
 .location-box .h3 { color: var(--white); }
 
@@ -1388,7 +1484,7 @@ body {
   padding: 12px 14px;
   border-radius: 999px;
   color: var(--white);
-  background: linear-gradient(45deg, #25d366, #128c7e);
+  background: var(--brand-blue-dark);
   box-shadow: var(--shadow-5);
   z-index: 4;
   font-size: 1.4rem;
@@ -1426,15 +1522,15 @@ body {
 }
 
 .sticky-cta-btn--agenda {
-  background: linear-gradient(90deg, #0ea5e9, #2563eb);
+  background: var(--brand-pink);
 }
 
 .sticky-cta-btn--llamar {
-  background: linear-gradient(90deg, #06b6d4, #0891b2);
+  background: var(--brand-blue);
 }
 
 .sticky-cta-btn--whatsapp {
-  background: linear-gradient(90deg, #25d366, #128c7e);
+  background: var(--brand-blue-dark);
 }
 
 .floating-whatsapp + .sticky-cta-bar {
