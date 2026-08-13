@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
   <title>GisDent | Consultorio Odontológico</title>
   <meta name="description" content="Consultorio Dental GisDent con Dra. Gisella Solis Vega. Ortodoncia, Implantología, Rehabilitación y Estética dental en Senda Dorada 126, Pueblo Libre (a 5 min de la PUCP).">
   <meta property="og:site_name" content="GisDent">
@@ -20,6 +21,10 @@
   <meta name="twitter:image" content="https://gisdent-web.vercel.app/assets/imagenes/clinica-3.jpg">
 
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="font" href="./assets/fonts/NunitoSans-Regular.ttf" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" as="font" href="./assets/fonts/NunitoSans-SemiBold.ttf" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" as="font" href="./assets/fonts/NunitoSans-Bold.ttf" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" as="font" href="./assets/fonts/NunitoSans-ExtraBold.ttf" type="font/ttf" crossorigin="anonymous">
   <link rel="stylesheet" href="./styles.css">
   <link rel="canonical" href="https://gisdent-web.vercel.app/">
 
@@ -59,6 +64,8 @@
 </head>
 
 <body id="top">
+
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
 
   <header class="header">
 
@@ -114,6 +121,7 @@
             <li><a href="#home" class="navbar-link" data-nav-link>Inicio</a></li>
             <li><a href="#service" class="navbar-link" data-nav-link>Servicios</a></li>
             <li><a href="#horarios" class="navbar-link" data-nav-link>Horarios</a></li>
+            <li><a href="#faq" class="navbar-link" data-nav-link>FAQ</a></li>
             <li><a href="#about" class="navbar-link" data-nav-link>Sobre Nosotros</a></li>
             <li><a href="#doctor" class="navbar-link" data-nav-link>Dra. Gisella</a></li>
             <li><a href="#galeria" class="navbar-link" data-nav-link>Galería</a></li>
@@ -131,7 +139,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <article>
       <section class="section hero" id="home" style="background-image: linear-gradient(to right, rgba(8, 29, 61, 0.64), rgba(8, 29, 61, 0.28)), url('./assets/imagenes/clinica-3.jpg')" aria-label="hero">
         <div class="container">
@@ -154,7 +162,15 @@
           </div>
 
           <figure class="hero-banner">
-            <img src="./assets/imagenes/gisella-profile.jpg" width="587" height="839" alt="Dra. Gisella Solis Vega" class="w-100">
+            <img
+              src="./assets/imagenes/gisella-profile.jpg"
+              width="587"
+              height="839"
+              loading="eager"
+              decoding="async"
+              alt="Dra. Gisella Solis Vega"
+              class="w-100"
+            >
           </figure>
         </div>
       </section>
@@ -168,7 +184,7 @@
             <li>
               <div class="service-card">
                 <div class="card-icon">
-                  <img src="./assets/images/service-icon-1.png" width="100" height="100" loading="lazy" alt="icono ortodoncia" class="w-100">
+                  <img src="./assets/images/service-icon-1.png" width="100" height="100" loading="lazy" alt="icono ortodoncia" decoding="async" class="w-100">
                 </div>
                 <div>
                   <h3 class="h3 card-title">Ortodoncia</h3>
@@ -180,7 +196,7 @@
             <li>
               <div class="service-card">
                 <div class="card-icon">
-                  <img src="./assets/images/service-icon-2.png" width="100" height="100" loading="lazy" alt="icono implantes" class="w-100">
+                  <img src="./assets/images/service-icon-2.png" width="100" height="100" loading="lazy" alt="icono implantes" decoding="async" class="w-100">
                 </div>
                 <div>
                   <h3 class="h3 card-title">Implantología</h3>
@@ -192,7 +208,7 @@
             <li>
               <div class="service-card">
                 <div class="card-icon">
-                  <img src="./assets/images/service-icon-3.png" width="100" height="100" loading="lazy" alt="icono rehabilitación" class="w-100">
+                  <img src="./assets/images/service-icon-3.png" width="100" height="100" loading="lazy" alt="icono rehabilitación" decoding="async" class="w-100">
                 </div>
                 <div>
                   <h3 class="h3 card-title">Rehabilitación oral</h3>
@@ -203,14 +219,14 @@
 
             <li class="service-banner">
               <figure>
-                <img src="./assets/imagenes/clinica-2.jpg" width="409" height="467" loading="lazy" alt="Consultorio GisDent" class="w-100">
+                <img src="./assets/imagenes/clinica-2.jpg" width="409" height="467" loading="lazy" alt="Consultorio GisDent" decoding="async" class="w-100">
               </figure>
             </li>
 
             <li>
               <div class="service-card">
                 <div class="card-icon">
-                  <img src="./assets/images/service-icon-4.png" width="100" height="100" loading="lazy" alt="icono estética dental" class="w-100">
+                  <img src="./assets/images/service-icon-4.png" width="100" height="100" loading="lazy" alt="icono estética dental" decoding="async" class="w-100">
                 </div>
                 <div>
                   <h3 class="h3 card-title">Estética Dental</h3>
@@ -222,7 +238,7 @@
             <li>
               <div class="service-card">
                 <div class="card-icon">
-                  <img src="./assets/images/service-icon-5.png" width="100" height="100" loading="lazy" alt="icono prevención" class="w-100">
+                  <img src="./assets/images/service-icon-5.png" width="100" height="100" loading="lazy" alt="icono prevención" decoding="async" class="w-100">
                 </div>
                 <div>
                   <h3 class="h3 card-title">Odontología preventiva</h3>
@@ -263,7 +279,7 @@
       <section class="section about" id="about" aria-label="about">
         <div class="container">
           <figure class="about-banner">
-            <img src="./assets/imagenes/clinica-3.jpg" width="470" height="538" loading="lazy" alt="Instalaciones de GisDent" class="w-100">
+            <img src="./assets/imagenes/clinica-3.jpg" width="470" height="538" loading="lazy" alt="Instalaciones de GisDent" decoding="async" class="w-100">
           </figure>
 
           <div class="about-content">
@@ -292,7 +308,7 @@
             <li class="scrollbar-item">
               <article class="doctor-card">
                 <div class="card-banner img-holder" style="--width: 460; --height: 500;">
-                  <img src="./assets/imagenes/gisella-profile.jpg" width="460" height="500" loading="lazy" alt="Dra. Gisella Solis Vega" class="img-cover">
+                  <img src="./assets/imagenes/gisella-profile.jpg" width="460" height="500" loading="lazy" alt="Dra. Gisella Solis Vega" decoding="async" class="img-cover">
                 </div>
 
                 <h3 class="h3">
@@ -330,7 +346,7 @@
       <section class="section cta" id="contacto" aria-label="cta">
         <div class="container">
           <figure class="cta-banner">
-            <img src="./assets/imagenes/clinica-1.jpg" width="1056" height="1076" loading="lazy" alt="Consultorio dental GisDent" class="w-100">
+            <img src="./assets/imagenes/clinica-1.jpg" width="1056" height="1076" loading="lazy" alt="Consultorio dental GisDent" decoding="async" class="w-100">
           </figure>
 
           <div class="cta-content">
@@ -340,15 +356,15 @@
             <form id="contactForm" class="contact-form">
               <label>
                 Nombre
-                <input type="text" name="name" minlength="3" maxlength="60" required>
+                <input type="text" name="name" minlength="3" maxlength="60" autocomplete="name" required>
               </label>
               <label>
                 Teléfono
-                <input type="tel" name="phone" inputmode="numeric" pattern="[0-9()+\s-]{9,15}" placeholder="+51 988 162 622" required>
+                <input type="tel" name="phone" inputmode="tel" autocomplete="tel" pattern="[0-9()+\s-]{9,15}" placeholder="+51 988 162 622" required>
               </label>
               <label>
                 Mensaje
-                <textarea name="message" rows="4" maxlength="600" placeholder="Cuéntanos qué te interesa..." required></textarea>
+                <textarea name="message" rows="4" maxlength="600" autocomplete="off" placeholder="Cuéntanos qué te interesa..." required></textarea>
               </label>
               <p id="formFeedback" class="form-feedback" role="status" aria-live="polite"></p>
               <button type="submit" class="btn">Solicitar cita</button>
@@ -381,6 +397,36 @@
         </div>
       </section>
 
+      <section class="section faq" id="faq" aria-label="preguntas frecuentes">
+        <div class="container">
+          <p class="section-subtitle text-center">Preguntas frecuentes</p>
+          <h2 class="h2 section-title text-center">Resuelve tus dudas antes de venir</h2>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>¿Se necesita ayuno para una consulta?</summary>
+              <p class="faq-answer">
+                En la mayoría de visitas no es necesario. Si el tratamiento o estudio requiere preparación previa, te enviamos instrucciones exactas al agendar.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Atienden sin cita previa?</summary>
+              <p class="faq-answer">
+                La agenda se maneja con citas para ordenar bien los tiempos. Si hay cupos disponibles, podemos ubicarte con espacio corto de entrada.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Atienden también urgencias?</summary>
+              <p class="faq-answer">
+                Para casos urgentes de dolor o dolor severo, contáctanos por WhatsApp y te orientamos para priorizarte según evaluación inicial.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <section class="section" aria-label="mapa">
         <div class="container">
           <p class="section-subtitle text-center">Mapa</p>
@@ -406,7 +452,7 @@
             <li>
               <article class="blog-card">
                 <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
-                  <img src="./assets/imagenes/ig-bf29ec5ae1fa4a40a0676b886aca2e67.jpg" width="1180" height="800" loading="lazy" alt="Publicación Instagram GisDent" class="img-cover">
+                  <img src="./assets/imagenes/ig-bf29ec5ae1fa4a40a0676b886aca2e67.jpg" width="1180" height="800" loading="lazy" alt="Publicación Instagram GisDent" decoding="async" class="img-cover">
                   <div class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
                     <time class="time" datetime="2026-08-01">Instagram</time>
@@ -424,7 +470,7 @@
             <li>
               <article class="blog-card">
                 <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
-                  <img src="./assets/imagenes/ig-48bc3c7bf88da334bdaffa1bcc040c00.jpg" width="1180" height="800" loading="lazy" alt="Publicación Instagram GisDent" class="img-cover">
+                  <img src="./assets/imagenes/ig-48bc3c7bf88da334bdaffa1bcc040c00.jpg" width="1180" height="800" loading="lazy" alt="Publicación Instagram GisDent" decoding="async" class="img-cover">
                   <div class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
                     <time class="time" datetime="2026-08-02">Instagram</time>
@@ -442,7 +488,7 @@
             <li>
               <article class="blog-card">
                 <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
-                  <img src="./assets/imagenes/ig-f5072c6790a77c7d8f8fbfcc169b509e.jpg" width="1180" height="800" loading="lazy" alt="Publicación Instagram GisDent" class="img-cover">
+                  <img src="./assets/imagenes/ig-f5072c6790a77c7d8f8fbfcc169b509e.jpg" width="1180" height="800" loading="lazy" alt="Publicación Instagram GisDent" decoding="async" class="img-cover">
                   <div class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
                     <time class="time" datetime="2026-08-03">Instagram</time>
@@ -460,7 +506,7 @@
             <li>
               <article class="blog-card">
                 <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
-                  <img src="./assets/imagenes/clinica-2.jpg" width="1180" height="800" loading="lazy" alt="Consultorio GisDent" class="img-cover">
+                  <img src="./assets/imagenes/clinica-2.jpg" width="1180" height="800" loading="lazy" alt="Consultorio GisDent" decoding="async" class="img-cover">
                   <div class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
                     <time class="time" datetime="2026-08-04">Instalación</time>
@@ -477,7 +523,7 @@
             <li>
               <article class="blog-card">
                 <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
-                  <img src="./assets/imagenes/clinica-3.jpg" width="1180" height="800" loading="lazy" alt="Espacio en la clínica GisDent" class="img-cover">
+                  <img src="./assets/imagenes/clinica-3.jpg" width="1180" height="800" loading="lazy" alt="Espacio en la clínica GisDent" decoding="async" class="img-cover">
                   <div class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
                     <time class="time" datetime="2026-08-05">Clínica</time>
@@ -494,7 +540,7 @@
             <li>
               <article class="blog-card">
                 <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
-                  <img src="./assets/imagenes/2026-08-06-1640.jpeg" width="1180" height="800" loading="lazy" alt="Detalle del área clínica de GisDent" class="img-cover">
+                  <img src="./assets/imagenes/2026-08-06-1640.jpeg" width="1180" height="800" loading="lazy" alt="Detalle del área clínica de GisDent" decoding="async" class="img-cover">
                   <div class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
                     <time class="time" datetime="2026-08-06">Área clínica</time>
@@ -511,7 +557,7 @@
             <li>
               <article class="blog-card">
                 <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
-                  <img src="./assets/imagenes/2026-08-04-1813-2.jpeg" width="1180" height="800" loading="lazy" alt="Foto de atención en GisDent" class="img-cover">
+                  <img src="./assets/imagenes/2026-08-04-1813-2.jpeg" width="1180" height="800" loading="lazy" alt="Foto de atención en GisDent" decoding="async" class="img-cover">
                   <div class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
                     <time class="time" datetime="2026-08-07">Atención</time>
@@ -528,7 +574,7 @@
             <li>
               <article class="blog-card">
                 <figure class="card-banner img-holder" style="--width: 1180; --height: 800;">
-                  <img src="./assets/imagenes/2026-08-12-1044.jpeg" width="1180" height="800" loading="lazy" alt="Paciente y atención en GisDent" class="img-cover">
+                  <img src="./assets/imagenes/2026-08-12-1044.jpeg" width="1180" height="800" loading="lazy" alt="Paciente y atención en GisDent" decoding="async" class="img-cover">
                   <div class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
                     <time class="time" datetime="2026-08-08">Experiencia</time>
@@ -575,6 +621,7 @@
           </li>
           <li><a href="#home" class="footer-link"><ion-icon name="add-outline"></ion-icon><span class="span">Inicio</span></a></li>
           <li><a href="#service" class="footer-link"><ion-icon name="add-outline"></ion-icon><span class="span">Servicios</span></a></li>
+          <li><a href="#faq" class="footer-link"><ion-icon name="add-outline"></ion-icon><span class="span">FAQ</span></a></li>
           <li><a href="#about" class="footer-link"><ion-icon name="add-outline"></ion-icon><span class="span">Sobre nosotros</span></a></li>
           <li><a href="#doctor" class="footer-link"><ion-icon name="add-outline"></ion-icon><span class="span">Dra. Gisella</span></a></li>
           <li><a href="#galeria" class="footer-link"><ion-icon name="add-outline"></ion-icon><span class="span">Galería</span></a></li>
