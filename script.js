@@ -72,16 +72,57 @@ if (header && backTopBtn) {
  */
 
 const contactForm = document.querySelector("#contactForm");
+const contactFeedback = document.querySelector("#formFeedback");
+
+const setFormFeedback = function (message, isError = true) {
+  if (!contactFeedback) return;
+  contactFeedback.textContent = message;
+  if (message) {
+    contactFeedback.style.display = "block";
+    contactFeedback.classList.toggle("is-visible", isError);
+  } else {
+    contactFeedback.style.display = "none";
+    contactFeedback.classList.remove("is-visible");
+  }
+};
 
 if (contactForm) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const data = new FormData(contactForm);
-    const message = encodeURIComponent(
-      `Hola, quiero agendar cita en GisDent.\n\nNombre: ${data.get("name")}\nTeléfono: ${data.get("phone")}\nMensaje: ${data.get("message")}`
+    const name = String(data.get("name") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const messageText = String(data.get("message") || "").trim();
+
+    if (name.length < 3) {
+      setFormFeedback("Ingresa un nombre válido.");
+      return;
+    }
+
+    if (messageText.length < 8) {
+      setFormFeedback("Cuéntanos brevemente qué tratamiento necesitas.");
+      return;
+    }
+
+    const phoneDigits = phone.replace(/\\D/g, "");
+    let whatsappPhone = phoneDigits;
+
+    if (phoneDigits.length === 9) {
+      whatsappPhone = `51${phoneDigits}`;
+    }
+
+    if (whatsappPhone.length !== 11 || !/^[1-9]\\d+$/.test(whatsappPhone)) {
+      setFormFeedback("Escribe un número de WhatsApp válido (ej. +51 988 162 622).");
+      return;
+    }
+
+    setFormFeedback("");
+
+    const whatsappMessage = encodeURIComponent(
+      `Hola, quiero agendar cita en GisDent.\n\nNombre: ${name}\nTeléfono: ${phone}\nMensaje: ${messageText}`
     );
-    const whatsapp = `https://wa.me/51988162622?text=${message}`;
+    const whatsapp = `https://wa.me/${whatsappPhone}?text=${whatsappMessage}`;
 
     window.location.href = whatsapp;
   });

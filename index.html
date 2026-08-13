@@ -308,20 +308,59 @@
             <form id="contactForm" class="contact-form">
               <label>
                 Nombre
-                <input type="text" name="name" required>
+                <input type="text" name="name" minlength="3" maxlength="60" required>
               </label>
               <label>
                 Teléfono
-                <input type="tel" name="phone" placeholder="999 000 000" required>
+                <input type="tel" name="phone" pattern="[0-9+()\\-\\s]{9,15}" placeholder="+51 988 162 622" required>
               </label>
               <label>
                 Mensaje
-                <textarea name="message" rows="4" placeholder="Cuéntanos qué te interesa..." required></textarea>
+                <textarea name="message" rows="4" maxlength="600" placeholder="Cuéntanos qué te interesa..." required></textarea>
               </label>
+              <p id="formFeedback" class="form-feedback" role="status" aria-live="polite"></p>
               <button type="submit" class="btn">Solicitar cita</button>
             </form>
             <a href="tel:+51988162622" class="btn">Llamar ahora</a>
             <a href="https://wa.me/51988162622?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20GisDent" target="_blank" rel="noopener noreferrer" class="btn">Escribir por WhatsApp</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section schedule-section" id="horarios" aria-label="horarios">
+        <div class="container">
+          <p class="section-subtitle text-center">Horarios</p>
+          <h2 class="h2 section-title text-center">Atención ambulatoria</h2>
+
+          <div class="schedule-grid">
+            <div>
+              <ul class="office-hours">
+                <li><span>Lunes - Viernes:</span><strong>08:30 - 20:00</strong></li>
+                <li><span>Sábado:</span><strong>09:00 - 14:00</strong></li>
+                <li><span>Domingo:</span><strong>Cerrado</strong></li>
+              </ul>
+            </div>
+            <div class="location-box">
+              <p class="section-subtitle">Ubicación</p>
+              <p class="h3">Senda Dorada 126, Pueblo Libre</p>
+              <p>Cerca de la PUCP, en una zona de fácil acceso.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="mapa">
+        <div class="container">
+          <p class="section-subtitle text-center">Mapa</p>
+          <h2 class="h2 section-title text-center">Visítanos</h2>
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps?q=Senda%20Dorada%20126%2C%20Pueblo%20Libre%2C%20Lima&output=embed"
+              loading="lazy"
+              allowfullscreen=""
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa GisDent"
+            ></iframe>
           </div>
         </div>
       </section>
@@ -574,6 +613,18 @@
 
   <a href="#top" class="back-top-btn" aria-label="volver arriba" data-back-top-btn>
     <ion-icon name="caret-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <a
+    href="https://wa.me/51988162622?text=Hola%2C%20quiero%20agendar%20mi%20cita%20en%20GisDent"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="floating-whatsapp"
+    aria-label="Agendar por WhatsApp"
+    title="Agendar por WhatsApp"
+  >
+    <ion-icon name="logo-whatsapp"></ion-icon>
+    <span>Agendar por WhatsApp</span>
   </a>
 
   <script src="./script.js" defer></script>
