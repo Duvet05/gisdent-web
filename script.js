@@ -71,6 +71,8 @@ if (header && backTopBtn) {
  * contact form -> WhatsApp
  */
 
+const CLINIC_WHATSAPP = "51988162622";
+
 const contactForm = document.querySelector("#contactForm");
 const contactFeedback = document.querySelector("#formFeedback");
 
@@ -108,18 +110,9 @@ if (contactForm) {
     }
 
     const phoneDigits = phone.replace(/[^0-9]/g, "");
-    let whatsappPhone = phoneDigits;
 
-    if (phoneDigits.length === 9) {
-      whatsappPhone = `51${phoneDigits}`;
-    }
-
-    if (phoneDigits.length === 10 && phoneDigits.startsWith("0")) {
-      whatsappPhone = `51${phoneDigits.slice(1)}`;
-    }
-
-    if (whatsappPhone.length !== 11 || !/^[1-9]\d+$/.test(whatsappPhone)) {
-      setFormFeedback("Escribe un número de WhatsApp válido (ej. +51 988 162 622).");
+    if (phoneDigits.length < 9) {
+      setFormFeedback("Escribe un número de teléfono válido (ej. 988 162 622).");
       return;
     }
 
@@ -128,7 +121,7 @@ if (contactForm) {
     const whatsappMessage = encodeURIComponent(
       `Hola, quiero agendar cita en GisDent.\n\nNombre: ${name}\nTeléfono: ${phone}\nMensaje: ${messageText}`
     );
-    const whatsapp = `https://wa.me/${whatsappPhone}?text=${whatsappMessage}`;
+    const whatsapp = `https://wa.me/${CLINIC_WHATSAPP}?text=${whatsappMessage}`;
 
     setFormFeedback("Conectando con WhatsApp...", false);
 
