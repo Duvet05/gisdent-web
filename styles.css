@@ -46,6 +46,15 @@ body {
   align-items: center;
 }
 
+.doctor-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 18px;
+  object-fit: cover;
+  border: 1px solid #cdddf3;
+  margin-bottom: 1rem;
+}
+
 .logo-dot {
   width: 36px;
   height: 36px;
