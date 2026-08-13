@@ -21,10 +21,45 @@
 
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="canonical" href="https://gisdent-web.vercel.app/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DentalClinic",
+    "name": "GisDent",
+    "image": "https://gisdent-web.vercel.app/assets/imagenes/clinica-1.jpg",
+    "url": "https://gisdent-web.vercel.app/",
+    "telephone": "+51 988 162 622",
+    "email": "gisella.solis.unmsm@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Senda Dorada 126",
+      "addressLocality": "Pueblo Libre",
+      "addressRegion": "Lima",
+      "addressCountry": "PE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -12.0670,
+      "longitude": -77.0670
+    },
+    "openingHours": [
+      "Mo-Fr 08:30-20:00",
+      "Sa 09:00-14:00"
+    ],
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.instagram.com/gisdent08/",
+      "https://www.tiktok.com/@gisdent.dental08",
+      "https://www.facebook.com/search/top/?q=Consultorio%20Dental%20GisDent"
+    ]
+  }
+  </script>
 </head>
 
 <body id="top">
@@ -82,6 +117,7 @@
           <ul class="navbar-list">
             <li><a href="#home" class="navbar-link" data-nav-link>Inicio</a></li>
             <li><a href="#service" class="navbar-link" data-nav-link>Servicios</a></li>
+            <li><a href="#horarios" class="navbar-link" data-nav-link>Horarios</a></li>
             <li><a href="#about" class="navbar-link" data-nav-link>Sobre Nosotros</a></li>
             <li><a href="#doctor" class="navbar-link" data-nav-link>Dra. Gisella</a></li>
             <li><a href="#galeria" class="navbar-link" data-nav-link>Galería</a></li>
@@ -312,7 +348,7 @@
               </label>
               <label>
                 Teléfono
-                <input type="tel" name="phone" pattern="[0-9+()\\-\\s]{9,15}" placeholder="+51 988 162 622" required>
+                <input type="tel" name="phone" inputmode="numeric" pattern="[0-9()+\s-]{9,15}" placeholder="+51 988 162 622" required>
               </label>
               <label>
                 Mensaje
@@ -626,6 +662,12 @@
     <ion-icon name="logo-whatsapp"></ion-icon>
     <span>Agendar por WhatsApp</span>
   </a>
+
+  <div class="sticky-cta-bar" aria-label="Acceso rápido">
+    <a href="#contacto" class="btn sticky-cta-btn sticky-cta-btn--agenda">Agendar</a>
+    <a href="tel:+51988162622" class="btn sticky-cta-btn sticky-cta-btn--llamar">Llamar</a>
+    <a href="https://wa.me/51988162622?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20GisDent" target="_blank" rel="noopener noreferrer" class="btn sticky-cta-btn sticky-cta-btn--whatsapp">WhatsApp</a>
+  </div>
 
   <script src="./script.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
